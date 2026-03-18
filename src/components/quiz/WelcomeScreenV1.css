@@ -1,0 +1,138 @@
+.welcomeWrap {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.welcomeCard {
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+  border-radius: var(--radius-xl);
+  border: 1px solid rgba(224, 201, 163, 0.2);
+  background: linear-gradient(
+    160deg,
+    rgba(255, 255, 255, 0.07) 0%,
+    rgba(255, 255, 255, 0.025) 100%
+  );
+  box-shadow: var(--shadow-soft);
+  padding: 40px 32px 36px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  -webkit-backdrop-filter: blur(16px);
+  backdrop-filter: blur(16px);
+
+  animation: welcomeCardIn 720ms cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+
+.welcomeCard::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(
+    ellipse 70% 50% at 50% -10%,
+    rgba(189, 159, 89, 0.12) 0%,
+    transparent 70%
+  );
+}
+
+.welcomeCard::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20width='160'%20height='160'%3E%3Cfilter%20id='n'%3E%3CfeTurbulence%20type='fractalNoise'%20baseFrequency='.85'%20numOctaves='3'%20stitchTiles='stitch'/%3E%3C/filter%3E%3Crect%20width='160'%20height='160'%20filter='url(%23n)'%20opacity='.35'/%3E%3C/svg%3E");
+  background-size: 160px 160px;
+  opacity: 0.07;
+  mix-blend-mode: overlay;
+}
+
+.welcomeLogo {
+  display: block;
+  margin: 0 auto 18px;
+  width: 140px;
+  height: auto;
+  opacity: 0.92;
+  animation: welcomeFadeUp 720ms cubic-bezier(0.2, 0.8, 0.2, 1) both;
+  animation-delay: 60ms;
+}
+
+.welcomeTitle {
+  margin: 0 auto 10px;
+  font-size: 30px;
+  line-height: 1.15;
+  letter-spacing: -0.5px;
+  text-wrap: balance;
+  animation: welcomeFadeUp 720ms cubic-bezier(0.2, 0.8, 0.2, 1) both;
+  animation-delay: 120ms;
+}
+
+.welcomeTitleAccent {
+  color: var(--gold-300);
+}
+
+.welcomeText {
+  margin: 0 auto;
+  max-width: 540px;
+  color: var(--text-1);
+  line-height: 1.7;
+  font-size: 16px;
+  text-wrap: balance;
+  animation: welcomeFadeUp 720ms cubic-bezier(0.2, 0.8, 0.2, 1) both;
+  animation-delay: 190ms;
+}
+
+.welcomeCtaRow {
+  display: flex;
+  justify-content: center;
+  margin-top: 28px;
+  animation: welcomeFadeUp 720ms cubic-bezier(0.2, 0.8, 0.2, 1) both;
+  animation-delay: 260ms;
+}
+
+
+@keyframes welcomeCardIn {
+  from {
+    opacity: 0;
+    transform: translateY(16px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes welcomeFadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 520px) {
+  .welcomeCard {
+    padding: 28px 20px 24px;
+    animation: none;
+  }
+
+  .welcomeTitle {
+    font-size: 24px;
+    animation: none;
+  }
+
+  .welcomeLogo,
+  .welcomeText,
+  .welcomeCtaRow {
+    animation: none;
+  }
+
+  .welcomeLogo {
+    width: 120px;
+  }
+}
