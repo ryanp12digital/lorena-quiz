@@ -4,12 +4,14 @@ import LayoutV1 from '../components/quiz/LayoutV1'
 import QuizStepper from '../components/quiz/QuizStepper'
 import StepQuestionV1 from '../components/quiz/StepQuestionV1'
 import WelcomeScreenV1 from '../components/quiz/WelcomeScreenV1'
+import QuizContactFormV1 from '../components/quiz/QuizContactFormV1'
 import LogoLorena from '../components/brand/LogoLorena'
 import {
   evaluateQuizV1,
   getNextStepId,
   quizV1Questions,
   QuizV1Answers,
+  QuizV1Expectativa,
   QuizV1FinalPayload,
   QuizV1Intencao,
   QuizV1Prazo,
@@ -62,6 +64,17 @@ export default function QuizV1Page() {
     [navigate],
   )
 
+  const handleContactSubmit = React.useCallback(
+    (contact: { nome: string; email: string; telefone: string }) => {
+      setAnswers((prev) => {
+        const merged: QuizV1Answers = { ...prev, ...contact }
+        void finalizeAndGo(merged)
+        return merged
+      })
+    },
+    [finalizeAndGo],
+  )
+
   const handleNext = React.useCallback(
     async (value: string) => {
       const updatedAnswers: QuizV1Answers = { ...answers }
@@ -77,8 +90,8 @@ export default function QuizV1Page() {
         updatedAnswers.prazo = value as QuizV1Prazo
       } else if (currentStepId === 'passo_3_trajeto') {
         updatedAnswers.trajeto = value as QuizV1Trajeto
-      } else if (currentStepId === 'passo_4_prejuizos') {
-        updatedAnswers.prejuizos = value
+      } else if (currentStepId === 'passo_4_indenizacao') {
+        updatedAnswers.prejuizos = value as QuizV1Expectativa
       }
 
       const nextStepId = getNextStepId(currentStepId, updatedAnswers)
@@ -167,17 +180,30 @@ export default function QuizV1Page() {
             />
           )}
 
-          {currentStepId === 'passo_4_prejuizos' && (
+          {currentStepId === 'passo_4_indenizacao' && (
             <StepQuestionV1
-              type="textarea"
-              question={quizV1Questions.passo_4_prejuizos.question}
-              placeholder={quizV1Questions.passo_4_prejuizos.placeholder}
+              type="radio"
+              question={quizV1Questions.passo_4_indenizacao.question}
               canGoBack={canGoBack}
               onBack={handleBack}
-              value={answers.prejuizos}
+              options={quizV1Questions.passo_4_indenizacao.options}
+              selectedValue={answers.prejuizos}
               onNext={(v) => {
                 void handleNext(v)
               }}
+            />
+          )}
+
+          {currentStepId === 'passo_contato' && (
+            <QuizContactFormV1
+              canGoBack={canGoBack}
+              onBack={handleBack}
+              initial={{
+                nome: answers.nome,
+                email: answers.email,
+                telefone: answers.telefone,
+              }}
+              onSubmit={handleContactSubmit}
             />
           )}
         </>

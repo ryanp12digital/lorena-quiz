@@ -15,7 +15,6 @@
     "react-router-dom": "^7.13.1"
   },
   "devDependencies": {
-    "@iconify-json/material-symbols": "^1.2.63",
     "@types/react": "^19.2.14",
     "@types/react-dom": "^19.2.3",
     "@vitejs/plugin-react": "^6.0.1",

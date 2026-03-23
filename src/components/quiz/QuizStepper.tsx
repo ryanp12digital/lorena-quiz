@@ -8,23 +8,24 @@ function phaseForStep(stepId: QuizV1StepId): number {
   if (stepId === 'passo_1_intencao' || stepId === 'q_outro_describe') return 1
   if (stepId === 'passo_2_prazo') return 2
   if (stepId === 'passo_3_trajeto') return 3
-  if (stepId === 'passo_4_prejuizos') return 4
-  if (stepId === 'final') return 4
+  if (stepId === 'passo_4_indenizacao') return 4
+  if (stepId === 'passo_contato' || stepId === 'final') return 5
   return 0
 }
 
 const STEPS = [
-  { n: 1, icon: 'material-symbols:help-outline',        label: 'Problema'  },
-  { n: 2, icon: 'material-symbols:schedule-outline',    label: 'Prazo'     },
-  { n: 3, icon: 'material-symbols:flight',              label: 'Trajeto'   },
-  { n: 4, icon: 'material-symbols:description-outline', label: 'Prejuízos' },
+  { n: 1, icon: 'material-symbols:problem-outline', label: 'Problema' },
+  { n: 2, icon: 'material-symbols:schedule-outline', label: 'Prazo' },
+  { n: 3, icon: 'material-symbols:flight', label: 'Trajeto' },
+  { n: 4, icon: 'material-symbols:paid', label: 'Indenização' },
+  { n: 5, icon: 'material-symbols:contact-mail-outline', label: 'Contato' },
 ]
 
 // ── info badges (acima do stepper) ─────────────────────────────────────────
 
 const INFO_BADGES = [
   { icon: 'material-symbols:timer-outline', text: '< 2 min' },
-  { icon: 'material-symbols:list-alt-outline', text: '4 etapas' },
+  { icon: 'material-symbols:list-alt-outline', text: '5 etapas' },
   { icon: 'material-symbols:lock-outline', text: 'Sigilo garantido' },
 ]
 
@@ -70,12 +71,14 @@ export default function QuizStepper(props: { stepId: QuizV1StepId }) {
         ))}
       </div>
 
-      {/* ── Step progress ── */}
+      {/* ── Step progress (scroll em telas estreitas — 5 etapas) ── */}
+      <div style={{ width: '100%', overflowX: 'auto', paddingBottom: 4 }}>
       <div
         style={{
           display: 'flex',
           alignItems: 'flex-start',
           width: '100%',
+          minWidth: 520,
           gap: 0,
         }}
       >
@@ -176,6 +179,7 @@ export default function QuizStepper(props: { stepId: QuizV1StepId }) {
             </React.Fragment>
           )
         })}
+      </div>
       </div>
     </div>
   )

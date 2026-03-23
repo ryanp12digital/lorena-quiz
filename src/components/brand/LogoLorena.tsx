@@ -1,10 +1,12 @@
 import React from 'react'
-import logoUrl from '../../../logo lorena dourdo.svg?url'
+
+/** Logo em `public/Logo_lorena_dourado.png` (servido na raiz do site). */
+const LOGO_URL = '/Logo_lorena_dourado.png'
 
 export default function LogoLorena(props: { className?: string; style?: React.CSSProperties }) {
   return (
     <img
-      src={logoUrl}
+      src={LOGO_URL}
       alt="Lorena Carvalho"
       className={props.className}
       style={props.style}

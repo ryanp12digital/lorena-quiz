@@ -1,0 +1,91 @@
+.quizContactWrap {
+  width: 100%;
+}
+
+.quizContactCard {
+  width: 100%;
+  border-radius: 20px;
+  border: 1px solid rgba(224, 201, 163, 0.18);
+  background: rgba(255, 255, 255, 0.04);
+  box-shadow: var(--shadow-soft);
+  padding: 28px 24px 24px;
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+
+.quizContactTitle {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1.35;
+  text-wrap: balance;
+}
+
+.quizContactHint {
+  margin: 8px 0 0;
+  font-size: 13px;
+  color: var(--text-2);
+  line-height: 1.45;
+  text-wrap: balance;
+}
+
+.quizContactFields {
+  margin-top: 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.quizContactField {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  border-radius: 14px;
+  border: 1px solid var(--stroke);
+  background: var(--card);
+  padding: 0 14px 0 12px;
+  min-height: 50px;
+  transition: border-color 140ms ease;
+}
+
+.quizContactField:focus-within {
+  border-color: rgba(189, 159, 89, 0.45);
+}
+
+.quizContactFieldIcon {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--gold-300);
+  opacity: 0.9;
+}
+
+.quizContactField input {
+  flex: 1;
+  min-width: 0;
+  border: none;
+  background: transparent;
+  padding: 14px 0;
+  color: var(--text-0);
+  font-size: 15px;
+  font-family: inherit;
+  outline: none;
+}
+
+.quizContactField input::placeholder {
+  color: rgba(255, 255, 255, 0.32);
+}
+
+.quizContactError {
+  margin: 4px 0 0;
+  font-size: 12px;
+  color: #e07070;
+  min-height: 1.2em;
+}
+
+.quizContactActions {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 22px;
+}

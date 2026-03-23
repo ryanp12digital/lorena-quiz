@@ -2,7 +2,15 @@ import React from 'react'
 import { useLocation } from 'react-router-dom'
 import LogoLorena from '../components/brand/LogoLorena'
 import LayoutV1 from '../components/quiz/LayoutV1'
-import { evaluateQuizV1, quizV1Questions, QuizV1FinalPayload, QuizV1Intencao, QuizV1Prazo, QuizV1Trajeto } from '../quiz/v1/quizV1Logic'
+import {
+  evaluateQuizV1,
+  quizV1Questions,
+  QuizV1Expectativa,
+  QuizV1FinalPayload,
+  QuizV1Intencao,
+  QuizV1Prazo,
+  QuizV1Trajeto,
+} from '../quiz/v1/quizV1Logic'
 
 function labelFromOptions<T extends string>(opts: Array<{ value: T; label: string }>, value?: T) {
   if (!value) return ''
@@ -29,6 +37,10 @@ export default function ObrigadoPage() {
   const trajetoLabel = labelFromOptions<QuizV1Trajeto>(
     quizV1Questions.passo_3_trajeto.options as any,
     answers.trajeto,
+  )
+  const expectativaLabel = labelFromOptions<QuizV1Expectativa>(
+    quizV1Questions.passo_4_indenizacao.options as any,
+    answers.prejuizos,
   )
 
   return (
@@ -95,6 +107,66 @@ export default function ObrigadoPage() {
             </div>
 
             <div style={{ display: 'grid', gap: 8, justifyItems: 'center' }}>
+              {(answers.nome || answers.email || answers.telefone) && (
+                <div
+                  style={{
+                    display: 'grid',
+                    gap: 6,
+                    marginBottom: 4,
+                    width: '100%',
+                    maxWidth: 560,
+                    textAlign: 'left',
+                  }}
+                >
+                  <div
+                    style={{
+                      color: 'var(--text-2)',
+                      fontSize: 13,
+                      marginBottom: 2,
+                      textWrap: 'balance',
+                    }}
+                  >
+                    Seus dados
+                  </div>
+                  {answers.nome && (
+                    <div
+                      style={{
+                        fontSize: 14,
+                        color: 'var(--text-1)',
+                        textWrap: 'balance',
+                        overflowWrap: 'break-word',
+                      }}
+                    >
+                      <span style={{ color: 'var(--text-2)' }}>Nome:</span> {answers.nome}
+                    </div>
+                  )}
+                  {answers.email && (
+                    <div
+                      style={{
+                        fontSize: 14,
+                        color: 'var(--text-1)',
+                        textWrap: 'balance',
+                        overflowWrap: 'break-word',
+                      }}
+                    >
+                      <span style={{ color: 'var(--text-2)' }}>E-mail:</span> {answers.email}
+                    </div>
+                  )}
+                  {answers.telefone && (
+                    <div
+                      style={{
+                        fontSize: 14,
+                        color: 'var(--text-1)',
+                        textWrap: 'balance',
+                        overflowWrap: 'break-word',
+                      }}
+                    >
+                      <span style={{ color: 'var(--text-2)' }}>WhatsApp:</span> {answers.telefone}
+                    </div>
+                  )}
+                </div>
+              )}
+
               <div
                 style={{
                   fontSize: 14,
@@ -150,8 +222,8 @@ export default function ObrigadoPage() {
                     overflowWrap: 'break-word',
                   }}
                 >
-                  <span style={{ color: 'var(--text-2)' }}>O que você relatou:</span>{' '}
-                  {answers.prejuizos.length > 180 ? `${answers.prejuizos.slice(0, 180)}...` : answers.prejuizos}
+                  <span style={{ color: 'var(--text-2)' }}>Expectativa de indenização:</span>{' '}
+                  {expectativaLabel || answers.prejuizos}
                 </div>
               )}
             </div>

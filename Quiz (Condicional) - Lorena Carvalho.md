@@ -15,7 +15,7 @@
 **Texto:**   
 Olá\! Sou Lorena Carvalho, advogada especialista em Direito Aéreo. Em menos de 2 minutos, vou analisar se você tem direito a uma indenização pelo que aconteceu no seu voo. Vamos começar?
 
-#### **Passo 1 — Intenção inicial**
+#### **Passo 1 — Problema**
 
 **Pergunta**: O que melhor descreve o seu problema?
 
@@ -55,8 +55,13 @@ Olá\! Sou Lorena Carvalho, advogada especialista em Direito Aéreo. Em menos de
   \- `voo_domestico` Voo dentro do Brasil (doméstico)   
   \- `voo_extrangeiro` Voo entre dois países estrangeiro 
 
-#### **Passo 4 — Tipo de prejuízo / consequência**
+#### **Passo 4 — indenização**
 
-- **Pergunta**:  Para finalizar, relate quais prejuízos/consequências que você teve com isso (ex: Perdi evento importante, gastos com hotel/transfer/acomodação, humilhação, etc)
+- **Pergunta**:  Qual a sua expectativa atual em relação a indenização?
 
-  **Opção:** Resposta curta
+  **Opções**:  
+  \- `RS500_a_R$999` R$500 a R$999  
+  \- `RS1000_a_RS1999 ` R$1000 a R$1999  
+  \- `RS3000_a_RS4999 ` R$3000 a R$4999 
+  \- `RS5000_a_RS9999` R$5000 a R$9999
+  \- `Acima_de_RS10000` Acima de R$10000

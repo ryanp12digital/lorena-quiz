@@ -6,7 +6,7 @@
 
 .welcomeCard {
   width: 100%;
-  max-width: 600px;
+  max-width: 887px;
   margin: 0 auto;
   border-radius: var(--radius-xl);
   border: 1px solid rgba(224, 201, 163, 0.2);
@@ -16,14 +16,46 @@
     rgba(255, 255, 255, 0.025) 100%
   );
   box-shadow: var(--shadow-soft);
-  padding: 40px 32px 36px;
-  text-align: center;
+  padding: 64px 72px 64px;
+  text-align: left;
   position: relative;
   overflow: hidden;
   -webkit-backdrop-filter: blur(16px);
   backdrop-filter: blur(16px);
 
   animation: welcomeCardIn 720ms cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+
+.welcomeGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(200px, 34%);
+  gap: 28px 24px;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+
+.welcomeCol--main {
+  min-width: 0;
+}
+
+.welcomeCol--photo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 0;
+  width: 237px;
+}
+
+.welcomeBioImg {
+  width: 100%;
+  max-width: min(280px, 32vw);
+  height: auto;
+  object-fit: contain;
+  border-radius: 14px;
+  opacity: 0.96;
+  animation: welcomeFadeUp 720ms cubic-bezier(0.2, 0.8, 0.2, 1) both;
+  animation-delay: 140ms;
 }
 
 .welcomeCard::before {
@@ -51,19 +83,20 @@
 
 .welcomeLogo {
   display: block;
-  margin: 0 auto 18px;
-  width: 140px;
+  margin: 0 0 14px 0;
+  width: min(152px, 42%);
+  max-width: 168px;
   height: auto;
-  opacity: 0.92;
+  opacity: 0.86;
   animation: welcomeFadeUp 720ms cubic-bezier(0.2, 0.8, 0.2, 1) both;
   animation-delay: 60ms;
 }
 
 .welcomeTitle {
-  margin: 0 auto 10px;
-  font-size: 30px;
+  margin: 0 0 12px 0;
+  font-size: 34px;
   line-height: 1.15;
-  letter-spacing: -0.5px;
+  letter-spacing: -0.45px;
   text-wrap: balance;
   animation: welcomeFadeUp 720ms cubic-bezier(0.2, 0.8, 0.2, 1) both;
   animation-delay: 120ms;
@@ -74,11 +107,11 @@
 }
 
 .welcomeText {
-  margin: 0 auto;
-  max-width: 540px;
+  margin: 0;
+  max-width: 42rem;
   color: var(--text-1);
-  line-height: 1.7;
-  font-size: 16px;
+  line-height: 1.65;
+  font-size: 18px;
   text-wrap: balance;
   animation: welcomeFadeUp 720ms cubic-bezier(0.2, 0.8, 0.2, 1) both;
   animation-delay: 190ms;
@@ -86,10 +119,25 @@
 
 .welcomeCtaRow {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   margin-top: 28px;
   animation: welcomeFadeUp 720ms cubic-bezier(0.2, 0.8, 0.2, 1) both;
   animation-delay: 260ms;
+}
+
+/* Pulso suave no CTA — só nesta tela */
+.welcomeCtaRow .btn-pill {
+  animation: welcomeBtnPulse 2.4s ease-in-out infinite;
+}
+
+.welcomeCtaRow .btn-pill:focus-visible {
+  animation: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .welcomeCtaRow .btn-pill {
+    animation: none;
+  }
 }
 
 
@@ -115,6 +163,37 @@
   }
 }
 
+@keyframes welcomeBtnPulse {
+  0%,
+  100% {
+    box-shadow:
+      0 2px 12px rgba(189, 159, 89, 0.28),
+      inset 0 1px 0 rgba(255, 255, 255, 0.2),
+      0 0 0 0 rgba(189, 159, 89, 0.4);
+  }
+  55% {
+    box-shadow:
+      0 2px 14px rgba(189, 159, 89, 0.34),
+      inset 0 1px 0 rgba(255, 255, 255, 0.2),
+      0 0 0 12px rgba(189, 159, 89, 0);
+  }
+}
+
+@media (max-width: 820px) {
+  .welcomeGrid {
+    grid-template-columns: 1fr;
+    gap: 22px;
+  }
+
+  .welcomeCol--photo {
+    width: auto;
+  }
+
+  .welcomeBioImg {
+    max-width: min(240px, 70vw);
+  }
+}
+
 @media (max-width: 520px) {
   .welcomeCard {
     padding: 28px 20px 24px;
@@ -122,8 +201,12 @@
   }
 
   .welcomeTitle {
-    font-size: 24px;
+    font-size: 26px;
     animation: none;
+  }
+
+  .welcomeText {
+    font-size: 16px;
   }
 
   .welcomeLogo,
@@ -132,7 +215,12 @@
     animation: none;
   }
 
+  .welcomeBioImg {
+    animation: none;
+  }
+
   .welcomeLogo {
-    width: 120px;
+    width: min(136px, 68%);
+    max-width: 156px;
   }
 }

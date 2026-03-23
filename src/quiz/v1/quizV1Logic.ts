@@ -19,13 +19,21 @@ export type QuizV1Trajeto =
   | 'voo_domestico'
   | 'voo_extrangeiro'
 
+export type QuizV1Expectativa =
+  | 'RS500_a_R$999'
+  | 'RS1000_a_RS1999'
+  | 'RS3000_a_RS4999'
+  | 'RS5000_a_RS9999'
+  | 'Acima_de_RS10000'
+
 export type QuizV1StepId =
   | 'welcome'
   | 'passo_1_intencao'
   | 'q_outro_describe'
   | 'passo_2_prazo'
   | 'passo_3_trajeto'
-  | 'passo_4_prejuizos'
+  | 'passo_4_indenizacao'
+  | 'passo_contato'
   | 'final'
 
 export type QuizV1Answers = {
@@ -33,7 +41,10 @@ export type QuizV1Answers = {
   outroDescribe?: string
   prazo?: QuizV1Prazo
   trajeto?: QuizV1Trajeto
-  prejuizos?: string
+  prejuizos?: QuizV1Expectativa
+  nome?: string
+  email?: string
+  telefone?: string
 }
 
 export type QuizV1Evaluation = {
@@ -46,13 +57,6 @@ export type QuizV1FinalPayload = {
   version: 'v1'
   answers: QuizV1Answers
   evaluation: QuizV1Evaluation
-}
-
-export function initialQuizV1State() {
-  return {
-    stepId: 'welcome' as QuizV1StepId,
-    answers: {} as QuizV1Answers,
-  }
 }
 
 export function evaluateQuizV1(answers: QuizV1Answers): QuizV1Evaluation {
@@ -80,8 +84,8 @@ export function getNextStepId(
     const evaluation = evaluateQuizV1(answers)
     return evaluation.disqualified ? 'final' : 'passo_3_trajeto'
   }
-  if (currentStepId === 'passo_3_trajeto') return 'passo_4_prejuizos'
-  if (currentStepId === 'passo_4_prejuizos') return 'final'
+  if (currentStepId === 'passo_3_trajeto') return 'passo_4_indenizacao'
+  if (currentStepId === 'passo_4_indenizacao') return 'passo_contato'
   return 'final'
 }
 
@@ -125,10 +129,15 @@ export const quizV1Questions = {
       { label: 'Voo entre dois países estrangeiro', value: 'voo_extrangeiro' },
     ] as Array<{ label: string; value: QuizV1Trajeto }>,
   },
-  passo_4_prejuizos: {
-    question:
-      'Para finalizar, relate quais prejuízos/consequências que você teve com isso (ex: perdi evento importante, gastos com hotel/transfer, humilhação, etc)',
-    placeholder: 'Escreva sua resposta em poucas linhas...',
+  passo_4_indenizacao: {
+    question: 'Qual a sua expectativa atual em relação a indenização?',
+    options: [
+      { label: 'R$500 a R$999', value: 'RS500_a_R$999' },
+      { label: 'R$1000 a R$1999', value: 'RS1000_a_RS1999' },
+      { label: 'R$3000 a R$4999', value: 'RS3000_a_RS4999' },
+      { label: 'R$5000 a R$9999', value: 'RS5000_a_RS9999' },
+      { label: 'Acima de R$10000', value: 'Acima_de_RS10000' },
+    ] as Array<{ label: string; value: QuizV1Expectativa }>,
   },
 }
 

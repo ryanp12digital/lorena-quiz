@@ -15,8 +15,9 @@ export default function LayoutV1(props: { children: React.ReactNode }) {
       <div
         style={{
           width: '100%',
-          maxWidth: 600,
+          maxWidth: 660,
           margin: '0 auto',
+          boxSizing: 'border-box',
         }}
       >
         {props.children}
