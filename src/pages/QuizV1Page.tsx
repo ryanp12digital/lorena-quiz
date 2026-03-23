@@ -108,7 +108,7 @@ export default function QuizV1Page() {
   )
 
   return (
-    <LayoutV1>
+    <LayoutV1 maxWidth={currentStepId === 'welcome' ? 880 : 660}>
       {currentStepId === 'welcome' ? (
         <WelcomeScreenV1
           onStart={() => {

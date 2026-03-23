@@ -6,7 +6,7 @@
 
 .welcomeCard {
   width: 100%;
-  max-width: 887px;
+  max-width: 880px;
   margin: 0 auto;
   border-radius: var(--radius-xl);
   border: 1px solid rgba(224, 201, 163, 0.2);

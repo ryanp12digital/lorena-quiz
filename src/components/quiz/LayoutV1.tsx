@@ -1,6 +1,14 @@
 import React from 'react'
 
-export default function LayoutV1(props: { children: React.ReactNode }) {
+const DEFAULT_MAX_WIDTH = 660
+
+export default function LayoutV1(props: {
+  children: React.ReactNode
+  /** Largura máxima do conteúdo (px). Padrão: 660. */
+  maxWidth?: number
+}) {
+  const maxW = props.maxWidth ?? DEFAULT_MAX_WIDTH
+
   return (
     <div
       style={{
@@ -15,7 +23,7 @@ export default function LayoutV1(props: { children: React.ReactNode }) {
       <div
         style={{
           width: '100%',
-          maxWidth: 660,
+          maxWidth: maxW,
           margin: '0 auto',
           boxSizing: 'border-box',
         }}
