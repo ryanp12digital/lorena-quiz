@@ -96,136 +96,123 @@ export default function ObrigadoPage() {
           >
             <div
               style={{
-                color: 'var(--text-2)',
-                fontSize: 13,
-                marginBottom: 8,
-                textWrap: 'balance',
-                overflowWrap: 'break-word',
+                display: 'grid',
+                gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))',
+                gap: 16,
+                width: '100%',
+                maxWidth: 560,
+                margin: '0 auto',
+                textAlign: 'left',
               }}
             >
-              Suas respostas
-            </div>
-
-            <div style={{ display: 'grid', gap: 8, justifyItems: 'center' }}>
-              {(answers.nome || answers.email || answers.telefone) && (
+              <div style={{ display: 'grid', gap: 6, alignContent: 'start' }}>
                 <div
                   style={{
-                    display: 'grid',
-                    gap: 6,
-                    marginBottom: 4,
-                    width: '100%',
-                    maxWidth: 560,
-                    textAlign: 'left',
-                  }}
-                >
-                  <div
-                    style={{
-                      color: 'var(--text-2)',
-                      fontSize: 13,
-                      marginBottom: 2,
-                      textWrap: 'balance',
-                    }}
-                  >
-                    Seus dados
-                  </div>
-                  {answers.nome && (
-                    <div
-                      style={{
-                        fontSize: 14,
-                        color: 'var(--text-1)',
-                        textWrap: 'balance',
-                        overflowWrap: 'break-word',
-                      }}
-                    >
-                      <span style={{ color: 'var(--text-2)' }}>Nome:</span> {answers.nome}
-                    </div>
-                  )}
-                  {answers.email && (
-                    <div
-                      style={{
-                        fontSize: 14,
-                        color: 'var(--text-1)',
-                        textWrap: 'balance',
-                        overflowWrap: 'break-word',
-                      }}
-                    >
-                      <span style={{ color: 'var(--text-2)' }}>E-mail:</span> {answers.email}
-                    </div>
-                  )}
-                  {answers.telefone && (
-                    <div
-                      style={{
-                        fontSize: 14,
-                        color: 'var(--text-1)',
-                        textWrap: 'balance',
-                        overflowWrap: 'break-word',
-                      }}
-                    >
-                      <span style={{ color: 'var(--text-2)' }}>WhatsApp:</span> {answers.telefone}
-                    </div>
-                  )}
-                </div>
-              )}
-
-              <div
-                style={{
-                  fontSize: 14,
-                  color: 'var(--text-1)',
-                  textWrap: 'balance',
-                  overflowWrap: 'break-word',
-                }}
-              >
-                <span style={{ color: 'var(--text-2)' }}>Problema:</span> {intencaoLabel || '—'}
-              </div>
-              <div
-                style={{
-                  fontSize: 14,
-                  color: 'var(--text-1)',
-                  textWrap: 'balance',
-                  overflowWrap: 'break-word',
-                }}
-              >
-                <span style={{ color: 'var(--text-2)' }}>Prazo:</span> {prazoLabel || '—'}
-              </div>
-              <div
-                style={{
-                  fontSize: 14,
-                  color: 'var(--text-1)',
-                  textWrap: 'balance',
-                  overflowWrap: 'break-word',
-                }}
-              >
-                <span style={{ color: 'var(--text-2)' }}>Trajeto:</span> {trajetoLabel || '—'}
-              </div>
-
-              {answers.outroDescribe && (
-                <div
-                  style={{
+                    color: 'var(--text-2)',
                     fontSize: 13,
-                    color: 'var(--text-1)',
-                    marginTop: 6,
-                    maxWidth: 560,
+                    marginBottom: 2,
                     textWrap: 'balance',
                     overflowWrap: 'break-word',
                   }}
                 >
-                  <span style={{ color: 'var(--text-2)' }}>Detalhe:</span> {answers.outroDescribe}
+                  Seus dados
                 </div>
-              )}
-              {answers.prejuizos && (
+                <div
+                  style={{
+                    fontSize: 14,
+                    color: 'var(--text-1)',
+                    textWrap: 'balance',
+                    overflowWrap: 'break-word',
+                  }}
+                >
+                  <span style={{ color: 'var(--text-2)' }}>Nome:</span> {answers.nome || '—'}
+                </div>
+                <div
+                  style={{
+                    fontSize: 14,
+                    color: 'var(--text-1)',
+                    textWrap: 'balance',
+                    overflowWrap: 'break-word',
+                  }}
+                >
+                  <span style={{ color: 'var(--text-2)' }}>E-mail:</span> {answers.email || '—'}
+                </div>
+                <div
+                  style={{
+                    fontSize: 14,
+                    color: 'var(--text-1)',
+                    textWrap: 'balance',
+                    overflowWrap: 'break-word',
+                  }}
+                >
+                  <span style={{ color: 'var(--text-2)' }}>WhatsApp:</span> {answers.telefone || '—'}
+                </div>
+              </div>
+
+              <div style={{ display: 'grid', gap: 6, alignContent: 'start' }}>
+                <div
+                  style={{
+                    color: 'var(--text-2)',
+                    fontSize: 13,
+                    marginBottom: 2,
+                    textWrap: 'balance',
+                    overflowWrap: 'break-word',
+                  }}
+                >
+                  Suas respostas
+                </div>
+                <div
+                  style={{
+                    fontSize: 14,
+                    color: 'var(--text-1)',
+                    textWrap: 'balance',
+                    overflowWrap: 'break-word',
+                  }}
+                >
+                  <span style={{ color: 'var(--text-2)' }}>Problema:</span> {intencaoLabel || '—'}
+                </div>
+                <div
+                  style={{
+                    fontSize: 14,
+                    color: 'var(--text-1)',
+                    textWrap: 'balance',
+                    overflowWrap: 'break-word',
+                  }}
+                >
+                  <span style={{ color: 'var(--text-2)' }}>Prazo:</span> {prazoLabel || '—'}
+                </div>
+                <div
+                  style={{
+                    fontSize: 14,
+                    color: 'var(--text-1)',
+                    textWrap: 'balance',
+                    overflowWrap: 'break-word',
+                  }}
+                >
+                  <span style={{ color: 'var(--text-2)' }}>Trajeto:</span> {trajetoLabel || '—'}
+                </div>
                 <div
                   style={{
                     fontSize: 13,
                     color: 'var(--text-1)',
-                    maxWidth: 560,
+                    textWrap: 'balance',
+                    overflowWrap: 'break-word',
+                  }}
+                >
+                  <span style={{ color: 'var(--text-2)' }}>Detalhe:</span> {answers.outroDescribe || '—'}
+                </div>
+                <div
+                  style={{
+                    fontSize: 13,
+                    color: 'var(--text-1)',
                     textWrap: 'balance',
                     overflowWrap: 'break-word',
                   }}
                 >
                   <span style={{ color: 'var(--text-2)' }}>Expectativa de indenização:</span>{' '}
-                  {expectativaLabel || answers.prejuizos}
+                  {expectativaLabel || answers.prejuizos || '—'}
                 </div>
-              )}
+              </div>
             </div>
           </div>
         )}
