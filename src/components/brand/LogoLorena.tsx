@@ -1,7 +1,7 @@
 import React from 'react'
 
-/** Logo em `public/Logo_lorena_dourado.png` (servido na raiz do site). */
-const LOGO_URL = '/Logo_lorena_dourado.png'
+/** Logo em `public/logo lorena dourdo-passageiro.svg` (servido na raiz do site). */
+const LOGO_URL = encodeURI('/logo lorena dourdo-passageiro.svg')
 
 export default function LogoLorena(props: { className?: string; style?: React.CSSProperties }) {
   return (

@@ -57,11 +57,11 @@ Olá\! Sou Lorena Carvalho, advogada especialista em Direito Aéreo. Em menos de
 
 #### **Passo 4 — indenização**
 
-- **Pergunta**:  Qual a sua expectativa atual em relação a indenização?
+- **Pergunta**:  Qual o valor mínimo que você consideraria justo para compensar estes transtornos?
 
   **Opções**:  
-  \- `RS500_a_R$999` R$500 a R$999  
-  \- `RS1000_a_RS1999 ` R$1000 a R$1999  
-  \- `RS3000_a_RS4999 ` R$3000 a R$4999 
-  \- `RS5000_a_RS9999` R$5000 a R$9999
-  \- `Acima_de_RS10000` Acima de R$10000
+  \- `ATE_RS999` Até R$999  
+  \- `DE_RS1000_A_RS2999` De R$1000 a R$2999  
+  \- `ENTRE_RS3000_E_RS7000` Entre R$ 3.000 e R$ 7.000  
+  \- `ACIMA_RS7000` Acima de R$ 7.000  
+  \- `AVALIACAO_TECNICA` Não sei, gostaria de uma avaliação técnica

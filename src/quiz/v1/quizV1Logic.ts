@@ -20,11 +20,11 @@ export type QuizV1Trajeto =
   | 'voo_extrangeiro'
 
 export type QuizV1Expectativa =
-  | 'RS500_a_R$999'
-  | 'RS1000_a_RS1999'
-  | 'RS3000_a_RS4999'
-  | 'RS5000_a_RS9999'
-  | 'Acima_de_RS10000'
+  | 'ATE_RS999'
+  | 'DE_RS1000_A_RS2999'
+  | 'ENTRE_RS3000_E_RS7000'
+  | 'ACIMA_RS7000'
+  | 'AVALIACAO_TECNICA'
 
 export type QuizV1StepId =
   | 'welcome'
@@ -130,13 +130,13 @@ export const quizV1Questions = {
     ] as Array<{ label: string; value: QuizV1Trajeto }>,
   },
   passo_4_indenizacao: {
-    question: 'Qual a sua expectativa atual em relação a indenização?',
+    question: 'Qual o valor mínimo que você consideraria justo para compensar estes transtornos?',
     options: [
-      { label: 'R$500 a R$999', value: 'RS500_a_R$999' },
-      { label: 'R$1000 a R$1999', value: 'RS1000_a_RS1999' },
-      { label: 'R$3000 a R$4999', value: 'RS3000_a_RS4999' },
-      { label: 'R$5000 a R$9999', value: 'RS5000_a_RS9999' },
-      { label: 'Acima de R$10000', value: 'Acima_de_RS10000' },
+      { label: 'Até R$999', value: 'ATE_RS999' },
+      { label: 'De R$1000 a R$2999', value: 'DE_RS1000_A_RS2999' },
+      { label: 'Entre R$ 3.000 e R$ 7.000', value: 'ENTRE_RS3000_E_RS7000' },
+      { label: 'Acima de R$ 7.000', value: 'ACIMA_RS7000' },
+      { label: 'Não sei, gostaria de uma avaliação técnica', value: 'AVALIACAO_TECNICA' },
     ] as Array<{ label: string; value: QuizV1Expectativa }>,
   },
 }
