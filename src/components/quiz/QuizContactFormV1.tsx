@@ -20,6 +20,16 @@ function digitsOnly(s: string) {
   return s.replace(/\D/g, '')
 }
 
+function formatPhoneBR(value: string) {
+  const digits = digitsOnly(value).slice(0, 11)
+  if (digits.length <= 2) return digits
+  if (digits.length <= 6) return `(${digits.slice(0, 2)}) ${digits.slice(2)}`
+  if (digits.length <= 10) {
+    return `(${digits.slice(0, 2)}) ${digits.slice(2, 6)}-${digits.slice(6)}`
+  }
+  return `(${digits.slice(0, 2)}) ${digits.slice(2, 7)}-${digits.slice(7)}`
+}
+
 function isValidEmail(s: string) {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(s.trim())
 }
@@ -27,7 +37,7 @@ function isValidEmail(s: string) {
 export default function QuizContactFormV1(props: Props) {
   const [nome, setNome] = React.useState(props.initial?.nome ?? '')
   const [email, setEmail] = React.useState(props.initial?.email ?? '')
-  const [telefone, setTelefone] = React.useState(props.initial?.telefone ?? '')
+  const [telefone, setTelefone] = React.useState(formatPhoneBR(props.initial?.telefone ?? ''))
   const [error, setError] = React.useState('')
 
   const handleSubmit = () => {
@@ -132,9 +142,9 @@ export default function QuizContactFormV1(props: Props) {
                 inputMode="numeric"
                 placeholder="Telefone (WhatsApp) com DDD"
                 value={telefone}
+                maxLength={15}
                 onChange={(e) => {
-                  const v = e.target.value
-                  setTelefone(v)
+                  setTelefone(formatPhoneBR(e.target.value))
                 }}
               />
             </div>
