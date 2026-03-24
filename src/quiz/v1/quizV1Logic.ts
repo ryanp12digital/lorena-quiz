@@ -92,7 +92,7 @@ export function getNextStepId(
 export const quizV1Questions = {
   welcome: {
     title: 'Boas-vindas',
-    text: 'Olá! Sou Lorena Carvalho, advogada especialista em Direito do PassageiroAéreo. Em menos de 1 minutos, vou analisar se você tem direito a uma indenização pelo que aconteceu no seu voo. Vamos começar?',
+    text: 'Olá! Sou Lorena Carvalho, advogada especialista em Direito do Passageiro Aéreo. Em menos de 1 minutos, vou analisar se você tem direito a uma indenização pelo que aconteceu no seu voo. Vamos começar?',
   },
   passo_1_intencao: {
     question: 'O que melhor descreve o seu problema?',
