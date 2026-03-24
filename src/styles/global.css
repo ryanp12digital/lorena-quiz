@@ -17,10 +17,11 @@ body {
   font-size: 16px;
 
   background:
-    radial-gradient(125% 125% at 50% -20%, rgba(189, 159, 89, 0.22) 0%, transparent 65%),
-    radial-gradient(ellipse 110% 70% at 50% 0%, rgba(42, 32, 9, 0.85) 0%, transparent 100%),
-    radial-gradient(ellipse 60% 40% at 20% 90%, rgba(113, 95, 53, 0.08) 0%, transparent 60%),
-    radial-gradient(ellipse 60% 40% at 80% 85%, rgba(189, 159, 89, 0.06) 0%, transparent 60%),
+    linear-gradient(180deg, #120d03 0%, #070604 40%, #000000 100%),
+    radial-gradient(130% 130% at 50% -20%, rgba(189, 159, 89, 0.2) 0%, transparent 72%),
+    radial-gradient(ellipse 120% 80% at 50% 0%, rgba(42, 32, 9, 0.72) 0%, transparent 100%),
+    radial-gradient(ellipse 70% 45% at 20% 90%, rgba(113, 95, 53, 0.08) 0%, transparent 70%),
+    radial-gradient(ellipse 70% 45% at 80% 88%, rgba(189, 159, 89, 0.06) 0%, transparent 70%),
     #000000;
   color: var(--text-0);
 }
@@ -28,10 +29,11 @@ body {
 @media (max-width: 768px) {
   body {
     background:
-      radial-gradient(100% 80% at 50% -10%, rgba(189, 159, 89, 0.18) 0%, transparent 55%),
-      radial-gradient(ellipse 140% 60% at 50% 0%, rgba(42, 32, 9, 0.9) 0%, transparent 100%),
-      radial-gradient(ellipse 70% 50% at 10% 95%, rgba(113, 95, 53, 0.06) 0%, transparent 50%),
-      radial-gradient(ellipse 70% 50% at 90% 92%, rgba(189, 159, 89, 0.05) 0%, transparent 50%),
+      linear-gradient(180deg, #120d03 0%, #060503 42%, #000000 100%),
+      radial-gradient(110% 90% at 50% -10%, rgba(189, 159, 89, 0.16) 0%, transparent 62%),
+      radial-gradient(ellipse 140% 70% at 50% 0%, rgba(42, 32, 9, 0.78) 0%, transparent 100%),
+      radial-gradient(ellipse 78% 54% at 10% 95%, rgba(113, 95, 53, 0.06) 0%, transparent 62%),
+      radial-gradient(ellipse 78% 54% at 90% 92%, rgba(189, 159, 89, 0.05) 0%, transparent 62%),
       #000000;
   }
 }
@@ -62,7 +64,7 @@ body::before {
   pointer-events: none;
   background-image: url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20width='160'%20height='160'%3E%3Cfilter%20id='n'%3E%3CfeTurbulence%20type='fractalNoise'%20baseFrequency='.9'%20numOctaves='3'%20stitchTiles='stitch'/%3E%3C/filter%3E%3Crect%20width='160'%20height='160'%20filter='url(%23n)'%20opacity='.35'/%3E%3C/svg%3E");
   background-size: 160px 160px;
-  opacity: 0.1;
+  opacity: 0.06;
   mix-blend-mode: overlay;
 }
 

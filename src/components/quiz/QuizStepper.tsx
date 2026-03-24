@@ -24,7 +24,7 @@ const STEPS = [
 // ── info badges (acima do stepper) ─────────────────────────────────────────
 
 const INFO_BADGES = [
-  { icon: 'material-symbols:timer-outline', text: '< 2 min' },
+  { icon: 'material-symbols:timer-outline', text: '< 1 min' },
   { icon: 'material-symbols:list-alt-outline', text: '5 etapas' },
   { icon: 'material-symbols:lock-outline', text: 'Sigilo garantido' },
 ]

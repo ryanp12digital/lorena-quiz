@@ -13,7 +13,7 @@
 #### **Passo 0 — Boas-vindas**
 
 **Texto:**   
-Olá\! Sou Lorena Carvalho, advogada especialista em Direito Aéreo. Em menos de 2 minutos, vou analisar se você tem direito a uma indenização pelo que aconteceu no seu voo. Vamos começar?
+Olá\! Sou Lorena Carvalho, advogada especialista em Direito Aéreo. Em menos de 1 minutos, vou analisar se você tem direito a uma indenização pelo que aconteceu no seu voo. Vamos começar?
 
 #### **Passo 1 — Problema**
 
