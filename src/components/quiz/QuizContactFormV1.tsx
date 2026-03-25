@@ -107,7 +107,7 @@ export default function QuizContactFormV1(props: Props) {
                 type="text"
                 name="nome"
                 autoComplete="name"
-                placeholder="Nome completo"
+                placeholder="Digite seu nome completo"
                 value={nome}
                 onChange={(e) => setNome(e.target.value)}
               />
@@ -123,7 +123,7 @@ export default function QuizContactFormV1(props: Props) {
                 type="email"
                 name="email"
                 autoComplete="email"
-                placeholder="E-mail"
+                placeholder="Digite o seu e-mail"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
               />
