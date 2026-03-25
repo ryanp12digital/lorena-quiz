@@ -140,7 +140,7 @@ export default function QuizContactFormV1(props: Props) {
                 name="telefone"
                 autoComplete="tel-national"
                 inputMode="numeric"
-                placeholder="Telefone (WhatsApp) com DDD"
+                placeholder="DDD+WhatsApp"
                 value={telefone}
                 maxLength={15}
                 onChange={(e) => {
