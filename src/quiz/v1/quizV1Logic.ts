@@ -134,8 +134,8 @@ export const quizV1Questions = {
     options: [
       { label: 'Até R$999', value: 'ATE_RS999' },
       { label: 'De R$1000 a R$2999', value: 'DE_RS1000_A_RS2999' },
-      { label: 'Entre R$ 3.000 e R$ 7.000', value: 'ENTRE_RS3000_E_RS7000' },
-      { label: 'Acima de R$ 7.000', value: 'ACIMA_RS7000' },
+      { label: 'Entre R$3.000 e R$7.000', value: 'ENTRE_RS3000_E_RS7000' },
+      { label: 'Acima de R$7.000', value: 'ACIMA_RS7000' },
       { label: 'Não sei, gostaria de uma avaliação técnica', value: 'AVALIACAO_TECNICA' },
     ] as Array<{ label: string; value: QuizV1Expectativa }>,
   },
