@@ -20,7 +20,7 @@ import {
 } from '../quiz/v1/quizV1Logic'
 
 async function submitQuizV1(payload: QuizV1FinalPayload) {
-  const DEFAULT_WEBHOOK_URL = 'https://fluxo-n8n.axmxa0.easypanel.host/webhook/quiz-v1'
+  const DEFAULT_WEBHOOK_URL = 'https://n8n-webhook.axmxa0.easypanel.host/webhook/quiz-v1'
   const WEBHOOK_URL =
     (import.meta.env.VITE_QUIZ_V1_WEBHOOK_URL as string | undefined) || DEFAULT_WEBHOOK_URL
 
